@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VPN Hub — Лучшие VPN</title>
+
+<!-- ===============================
+     PREMIUM APPLE-STYLE FONT
+================================ -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* ======================================================
+   RESET + BASE
+====================================================== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:#05060f;
+  color:white;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+
+/* ======================================================
+   ANIMATED GRADIENT BACKGROUND
+====================================================== */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+
+  background:
+    radial-gradient(circle at 20% 30%, #1b2cff33, transparent 40%),
+    radial-gradient(circle at 80% 70%, #00ffd533, transparent 40%),
+    radial-gradient(circle at 50% 50%, #7a00ff22, transparent 60%),
+    #05060f;
+
+  animation:bgMove 18s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove{
+  0%{transform:translateY(0px);}
+  100%{transform:translateY(-60px);}
+}
+
+/* subtle glow layer */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  backdrop-filter:blur(120px);
+}
+
+/* ======================================================
+   LAYOUT
+====================================================== */
+
+.container{
+  width:min(1200px,92%);
+  margin:auto;
+}
+
+/* ======================================================
+   HEADER
+====================================================== */
+
+header{
+  text-align:center;
+  padding:90px 0 60px;
+  animation:fadeSlide 1s ease forwards;
+}
+
+h1{
+  font-size:clamp(36px,5vw,56px);
+  font-weight:800;
+  letter-spacing:-0.02em;
+  margin-bottom:14px;
+}
+
+.subtitle{
+  opacity:.7;
+  font-size:18px;
+}
+
+/* ======================================================
+   GRID
+====================================================== */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:28px;
+  padding-bottom:80px;
+}
+
+/* ======================================================
+   GLASS CARD
+====================================================== */
+
+.card{
+  position:relative;
+  padding:28px;
+  border-radius:26px;
+
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  border:1px solid rgba(255,255,255,0.12);
+
+  transition:
+    transform .5s cubic-bezier(.2,.8,.2,1),
+    box-shadow .4s ease,
+    border .4s ease;
+
+  cursor:pointer;
+  overflow:hidden;
+}
+
+/* glowing gradient border */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:26px;
+  background:linear-gradient(120deg,#00ffd5,#4c6fff,#b100ff);
+  opacity:0;
+  z-index:-1;
+  transition:opacity .4s ease;
+}
+
+.card:hover::before{
+  opacity:.6;
+  filter:blur(12px);
+}
+
+/* hover glow */
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.6),
+    0 0 60px rgba(90,120,255,.25);
+}
+
+/* ======================================================
+   CARD CONTENT
+====================================================== */
+
+.icon{
+  font-size:42px;
+  margin-bottom:14px;
+}
+
+.card h3{
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.card p{
+  opacity:.7;
+  line-height:1.5;
+  margin-bottom:22px;
+}
+
+/* button */
+.open-btn{
+  padding:12px 18px;
+  border-radius:14px;
+  border:none;
+  font-weight:600;
+  color:white;
+  background:linear-gradient(135deg,#4c6fff,#7a5cff);
+  cursor:pointer;
+  transition:.3s;
+}
+
+.open-btn:hover{
+  transform:scale(1.05);
+}
+
+/* ======================================================
+   RIPPLE EFFECT
+====================================================== */
+
+.ripple{
+  position:absolute;
+  border-radius:50%;
+  transform:scale(0);
+  animation:ripple .7s linear;
+  background:rgba(255,255,255,.5);
+}
+
+@keyframes ripple{
+  to{
+    transform:scale(4);
+    opacity:0;
+  }
+}
+
+/* ======================================================
+   FOOTER
+====================================================== */
+
+footer{
+  text-align:center;
+  opacity:.5;
+  padding:40px 0 60px;
+}
+
+/* ======================================================
+   ANIMATIONS
+====================================================== */
+
+@keyframes fadeSlide{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* reveal on scroll */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ======================================================
+   MOBILE
+====================================================== */
+
+@media(max-width:600px){
+
+  header{
+    padding-top:70px;
+  }
+
+  .card{
+    padding:24px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ======================================================
+     HEADER
+====================================================== -->
+<header class="container">
+  <h1>Лучшие VPN сервисы 🚀</h1>
+  <div class="subtitle">
+    Открывайте безопасный интернет в один клик
+  </div>
+</header>
+
+<!-- ======================================================
+     VPN CARDS
+====================================================== -->
+<main class="container">
+  <div class="grid">
+
+    <!-- VPN 1 -->
+    <div class="card reveal"
+         data-link="https://t.me/ethervpnbot?start=8311892678">
+      <div class="icon">🛡️</div>
+      <h3>Ether VPN</h3>
+      <p>
+        Быстрое подключение, стабильные сервера и
+        современная защита приватности.
+      </p>
+      <button class="open-btn">Открыть VPN</button>
+    </div>
+
+    <!-- VPN 2 -->
+    <div class="card reveal"
+         data-link="https://t.me/trustvpn_official_bot?start=R1772176527990">
+      <div class="icon">⚡</div>
+      <h3>Trust VPN</h3>
+      <p>
+        Максимальная скорость соединения и
+        удобный запуск прямо из Telegram.
+      </p>
+      <button class="open-btn">Открыть VPN</button>
+    </div>
+
+    <!-- VPN 3 -->
+    <div class="card reveal"
+         data-link="https://t.me/obhod_mobilniy_bot?start=ref_8311892678">
+      <div class="icon">🌐</div>
+      <h3>Obhod VPN</h3>
+      <p>
+        Обход блокировок и стабильный доступ
+        к любимым сервисам без ограничений.
+      </p>
+      <button class="open-btn">Открыть VPN</button>
+    </div>
+
+  </div>
+</main>
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+<footer>
+  © 2026 VPN Hub
+</footer>
+
+<script>
+
+/* ======================================================
+   OPEN LINK IN NEW TAB
+====================================================== */
+
+document.querySelectorAll(".card").forEach(card => {
+
+  card.addEventListener("click", e => {
+
+    // ripple effect
+    const ripple = document.createElement("span");
+    ripple.classList.add("ripple");
+
+    const rect = card.getBoundingClientRect();
+    ripple.style.left = e.clientX - rect.left + "px";
+    ripple.style.top = e.clientY - rect.top + "px";
+
+    card.appendChild(ripple);
+
+    setTimeout(()=>ripple.remove(),700);
+
+    // open vpn link
+    const link = card.dataset.link;
+    window.open(link,"_blank");
+
+  });
+
+});
+
+/* ======================================================
+   HOVER TILT EFFECT (iOS STYLE)
+====================================================== */
+
+document.querySelectorAll(".card").forEach(card => {
+
+  card.addEventListener("mousemove", e => {
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width/2;
+    const centerY = rect.height/2;
+
+    const rotateX = -(y-centerY)/18;
+    const rotateY = (x-centerX)/18;
+
+    card.style.transform =
+      `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+
+  });
+
+  card.addEventListener("mouseleave", ()=>{
+    card.style.transform = "";
+  });
+
+});
+
+/* ======================================================
+   SCROLL REVEAL (IntersectionObserver)
+====================================================== */
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+},{
+  threshold:0.2
+});
+
+document.querySelectorAll(".reveal").forEach(el=>{
+  observer.observe(el);
+});
+
+/* ======================================================
+   SMOOTH SPRING APPEAR DELAY
+====================================================== */
+
+document.querySelectorAll(".card").forEach((card,i)=>{
+  card.style.transitionDelay = (i*0.08)+"s";
+});
+
+</script>
+
+</body>
+</html>
